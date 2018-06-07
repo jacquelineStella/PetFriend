@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {  NavController, AlertController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { PrincipalPage } from '../principal/principal';
+import { RegistroPage } from '../registro/registro';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +10,36 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  user= { email : '', password : ''};
+  constructor(public navCtrl: NavController,public auth : AuthProvider,public alertCtrl : AlertController ) {
 
   }
+
+
+
+  login()
+{
+    this.auth.loginUser(this.user.email,this.user.password ).then((user) => {
+      this.irPrincipal();
+      }
+    )
+     .catch(err=>{
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: err.message,
+        buttons: ['Aceptar']
+      });
+      alert.present();
+    })
+  }
+
+  irPrincipal(){
+    this.navCtrl.push(PrincipalPage);
+  }
+
+  irRegistro(){
+    this.navCtrl.push(RegistroPage);
+  }
+
 
 }
