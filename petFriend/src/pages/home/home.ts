@@ -12,7 +12,7 @@ export class HomePage {
 
   user= { email : '', password : ''};
   constructor(public navCtrl: NavController,public auth : AuthProvider,public alertCtrl : AlertController ) {
-
+   
   }
 
 

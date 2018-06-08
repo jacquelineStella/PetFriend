@@ -1,8 +1,11 @@
 
-        <ion-menu [content]="content">
+        <ion-menu [content]="content" id="menu">
             
             <ion-content>
               <ion-list>
+                  <button ion-item>Mi Perfil</button>
+                  <button ion-item>Mis mascotas</button>
+                  <button ion-item>Mis publicaciones</button>
                   <button ion-button block (click)=this.auth.logout()>Cerrar Sesión</button>
             </ion-list>
             </ion-content>
