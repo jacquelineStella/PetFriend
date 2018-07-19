@@ -6,13 +6,44 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>perfil</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Pet Friend</ion-title>
+          <ion-buttons start>
+            <button ion-button menuToggle="rightMenu">
+            <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons> 
+        </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-list>
+
+        <ion-item>
+          <ion-label >Nombre: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Email: </ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Numero de contacto: </ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+      </ion-list>
+      
+      <div padding>
+        <button block
+         type="submit"
+        color="primary">Guardar cambios</button>
+      </div>
+
+     
 
 </ion-content>

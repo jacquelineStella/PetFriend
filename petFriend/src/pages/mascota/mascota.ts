@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { ModalController,IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DbProvider } from '../../providers/db/db';
 /**
  * Generated class for the MascotaPage page.
  *
@@ -14,12 +14,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'mascota.html',
 })
 export class MascotaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+mascota: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl : ModalController,
+    private db :DbProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MascotaPage');
   }
 
+  ionViewDidEnter(){   
+    this.db.getMascota().subscribe(mascota=>{
+      this.mascota = mascota;
+    })
+  }
+  nuevoSitio(){
+    // aquí vamos a abrir el modal para añadir nuestro sitio.
+     let mimodal = this.modalCtrl.create( 'ModalNuevaMascotaPage' );
+     mimodal.present();
+  }
 }

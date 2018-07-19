@@ -12,6 +12,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { PrincipalPage } from '../pages/principal/principal';
 import { RegistroPage } from '../pages/registro/registro';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { MascotaPage } from '../pages/mascota/mascota';
+import { HistorialPage } from '../pages/historial/historial';
+import { DbProvider } from '../providers/db/db';
+import { Camera } from '@ionic-native/camera';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyA9WzCU0rc3rpx0Cwr_XMAGSJhGXvzGwlQ",
@@ -27,7 +32,10 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     PrincipalPage,
-    RegistroPage
+    RegistroPage,
+    PerfilPage,
+    MascotaPage,
+    HistorialPage
   ],
   imports: [
     BrowserModule,
@@ -41,13 +49,18 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     PrincipalPage,
-    RegistroPage
+    RegistroPage,
+    PerfilPage,
+    MascotaPage,
+    HistorialPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    DbProvider,
+    Camera
   ]
 })
 export class AppModule {}

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { DbProvider } from '../../providers/db/db';
+import { AuthProvider } from '../../providers/auth/auth';
+
 
 /**
  * Generated class for the PerfilPage page.
@@ -14,12 +17,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  //perfil: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth : AuthProvider,private db: DbProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
+    
   }
 
+  // ionViewDidEnter(){
+   
+  //   this.db.getPerfil().subscribe(perfil=>{
+  //     this.perfil = perfil;
+  //   })
+
 }
+
+

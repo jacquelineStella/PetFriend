@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, AlertController } from 'ionic-angular';
+import {  NavController, AlertController,MenuController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { PrincipalPage } from '../principal/principal';
 import { RegistroPage } from '../registro/registro';
@@ -11,10 +11,9 @@ import { RegistroPage } from '../registro/registro';
 export class HomePage {
 
   user= { email : '', password : ''};
-  constructor(public navCtrl: NavController,public auth : AuthProvider,public alertCtrl : AlertController ) {
-   
+  constructor(public navCtrl: NavController,public auth : AuthProvider,public alertCtrl : AlertController,public menuCtrl: MenuController ) {
+    this.menuCtrl.enable(false); 
   }
-
 
 
   login()

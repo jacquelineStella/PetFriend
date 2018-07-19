@@ -45,4 +45,11 @@ export class AuthProvider {
   return this.afAuth.authState;
  }
 
+ // Recuperar id de usuario
+
+ getUser(){
+  return this.afAuth.auth.currentUser.uid;
+}
+
+
 }

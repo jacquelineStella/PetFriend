@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
+
 
 /**
  * Generated class for the PrincipalPage page.
@@ -16,12 +17,11 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class PrincipalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public auth : AuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public auth : AuthProvider, public menuCtrl: MenuController ) {
+    this.menuCtrl.enable(true); 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PrincipalPage');
-  }
+
 
  
 

@@ -3,6 +3,7 @@ import {  NavController, AlertController,IonicPage,NavParams } from 'ionic-angul
 import { AuthProvider } from '../../providers/auth/auth';
 import { PrincipalPage } from '../principal/principal';
 import { HomePage } from '../home/home';
+import { DbProvider } from '../../providers/db/db';
 
 /**
  * Generated class for the RegistroPage page.
@@ -19,8 +20,9 @@ import { HomePage } from '../home/home';
 export class RegistroPage {
   
   user= { email : '', password : ''};
+  perfil= { nombre : '', telefono : ''};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public auth : AuthProvider,public alertCtrl : AlertController ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public auth : AuthProvider,public alertCtrl : AlertController, private db: DbProvider ) {
   }
 
   ionViewDidLoad() {
@@ -30,6 +32,7 @@ export class RegistroPage {
   signin(){
     this.auth.registerUser(this.user.email,this.user.password)
     .then((user) => {
+      this.guardarPerfil();
       this.irPrincipal();
       // El usuario se ha creado correctamente
     })
@@ -47,6 +50,16 @@ export class RegistroPage {
   irPrincipal(){
     this.navCtrl.push(PrincipalPage);
   }
-
+  
+  guardarPerfil(){
+    let perfil = {
+      nombre: this.perfil.nombre,
+      telefono: this.perfil.telefono 
+    }  
+this.db.guardarPerfil(perfil).then(res=>{
+        console.log('Sitio guardado en firebase:');
+        
+    })
+   }
 
 }

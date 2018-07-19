@@ -17,6 +17,26 @@
   <ion-list>
     <form>
       <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input
+            [(ngModel)]="perfil.nombre"
+            name="nombre"
+            type="text"
+            required
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Telefono de contacto</ion-label>
+            <ion-input
+              [(ngModel)]="perfil.telefono"
+              name="telefono"
+              type="number"
+              required
+            >
+            </ion-input>
+          </ion-item>
+      <ion-item>
         <ion-label floating>Email</ion-label>
         <ion-input
           [(ngModel)]="user.email"
