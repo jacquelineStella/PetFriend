@@ -53,7 +53,10 @@ foto: any= '';
       let mascota = {        
         nombre: this.nombre,
         descripcion: this.descripcion,
-        foto: this.foto
+        foto: this.foto,
+        perdido: "0",
+        temporal: "0",
+        permanente: "0"
       }
     
   this.db.guardarMascota(mascota).then(res=>{

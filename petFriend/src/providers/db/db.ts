@@ -26,7 +26,9 @@ export class DbProvider {
   //   return this.afDB.list('perfil/'+this.auth.getUser()).valueChanges();
   // }
   guardarMascota(mascota){
+    if(!mascota.id){
     mascota.id  = Date.now();
+    }
     return this.afDB.database.ref('mascota/'+this.auth.getUser()+'/'+mascota.id).set(mascota)
  }
 

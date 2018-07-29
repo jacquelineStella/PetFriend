@@ -17,7 +17,7 @@ import { AuthProvider } from '../../providers/auth/auth';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
-  //perfil: any;
+  perfil: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth : AuthProvider,private db: DbProvider) {
   }
 
