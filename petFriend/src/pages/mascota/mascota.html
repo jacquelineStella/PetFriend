@@ -18,7 +18,7 @@
 
 <ion-content padding>
     <ion-fab right top>
-        <button ion-fab (tap)="nuevoSitio()">
+        <button ion-fab (tap)="nuevaMascota()">
           <ion-icon name="pin"></ion-icon>
           <ion-icon name="add"></ion-icon>
         </button>
@@ -35,10 +35,12 @@
           <p>
             {{mascota.descripcion}}
           </p>
+          <p>Hemos recibido: {{ coords.lat }}, {{ coords.lng }}</p>
+          <p>{{ address }}</p>
         </ion-card-content>
         
           <ion-col>
-            <button ion-button clear small color="danger" icon-start >
+            <button ion-button clear small color="danger" icon-start  >
               <ion-icon name='warning' ></ion-icon>
               Me perdi
             </button>

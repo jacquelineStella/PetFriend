@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController,IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
 /**
  * Generated class for the MascotaPage page.
  *
@@ -15,11 +17,15 @@ import { DbProvider } from '../../providers/db/db';
 })
 export class MascotaPage {
 mascota: any;
+coords : any = { lat: 0, lng: 0 }
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modalCtrl : ModalController,
-    private db :DbProvider) {
+    private db :DbProvider,
+    public  platform: Platform,
+    private geolocation: Geolocation) {
+      
   }
 
   ionViewDidLoad() {
@@ -31,10 +37,13 @@ mascota: any;
       this.mascota = mascota;
     })
   }
-  nuevoSitio(){
-    // aquí vamos a abrir el modal para añadir nuestro sitio.
-     let mimodal = this.modalCtrl.create( 'ModalNuevaMascotaPage' );
+  nuevaMascota(){
+    // aquí vamos a abrir el modal para añadir nueva mascota.
+     let mimodal = this.modalCtrl.create( 'ModalNuevaMascotaPage',this.coords );
      mimodal.present();
   }
 
+
+ 
+ 
 }

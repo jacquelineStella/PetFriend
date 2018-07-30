@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController  } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DbProvider } from '../../providers/db/db';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
+
+
 /**
  * Generated class for the ModalNuevaMascotaPage page.
  *
@@ -18,11 +22,13 @@ export class ModalNuevaMascotaPage {
 nombre: string;
 descripcion: string;
 foto: any= '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl : ViewController,private camera: Camera,private db :DbProvider, ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl : ViewController,private camera: Camera,private db :DbProvider,public  platform: Platform,
+    public geolocation: Geolocation ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalNuevaMascotaPage');
+   
+  
   }
 
   cerrarModal(){
@@ -41,6 +47,8 @@ foto: any= '';
         correctOrientation: true
     }
 
+ 
+
 
     this.camera.getPicture(cameraOptions).then((imageData) => {
       // imageData is a base64 encoded string
@@ -50,13 +58,13 @@ foto: any= '';
     });
   }
     guardarMascota(){
+      
       let mascota = {        
         nombre: this.nombre,
         descripcion: this.descripcion,
-        foto: this.foto,
-        perdido: "0",
-        temporal: "0",
-        permanente: "0"
+        foto: this.foto,       
+
+        
       }
     
   this.db.guardarMascota(mascota).then(res=>{
@@ -64,5 +72,11 @@ foto: any= '';
           this.cerrarModal();
       })
      }
+   
+     
   }
+    
+  
+    
+  
 

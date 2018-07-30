@@ -17,10 +17,14 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class PrincipalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public auth : AuthProvider, public menuCtrl: MenuController ) {
-    this.menuCtrl.enable(true); 
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public auth : AuthProvider,
+     public menuCtrl: MenuController      ) {
+     this.menuCtrl.enable(true); 
+     
   }
-
+  
 
 
  

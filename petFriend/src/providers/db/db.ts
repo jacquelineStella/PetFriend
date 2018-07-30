@@ -35,6 +35,10 @@ export class DbProvider {
  getMascota(){
   return this.afDB.list('mascota/'+this.auth.getUser()).valueChanges();
 }
+getMascotaPerdida(mascota){
+  return this.afDB.list('mascota/'+this.auth.getUser()+'/'+mascota.id).valueChanges();
+}
+
 }
 
 

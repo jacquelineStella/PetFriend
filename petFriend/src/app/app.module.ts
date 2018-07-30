@@ -14,10 +14,11 @@ import { PrincipalPage } from '../pages/principal/principal';
 import { RegistroPage } from '../pages/registro/registro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { MascotaPage } from '../pages/mascota/mascota';
+
 import { HistorialPage } from '../pages/historial/historial';
 import { DbProvider } from '../providers/db/db';
 import { Camera } from '@ionic-native/camera';
-
+import { Geolocation } from '@ionic-native/geolocation';
 export const firebaseConfig = {
     apiKey: "AIzaSyA9WzCU0rc3rpx0Cwr_XMAGSJhGXvzGwlQ",
     authDomain: "petfriend-2018.firebaseapp.com",
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     RegistroPage,
     PerfilPage,
     MascotaPage,
-    HistorialPage
+    HistorialPage,
+   
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,9 @@ export const firebaseConfig = {
     RegistroPage,
     PerfilPage,
     MascotaPage,
-    HistorialPage
+    HistorialPage,
+      
+    
   ],
   providers: [
     StatusBar,
@@ -60,7 +64,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     DbProvider,
-    Camera
+    Camera,
+    Geolocation
   ]
 })
 export class AppModule {}
