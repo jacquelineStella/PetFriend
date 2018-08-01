@@ -14,6 +14,7 @@ import { PrincipalPage } from '../pages/principal/principal';
 import { RegistroPage } from '../pages/registro/registro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { MascotaPage } from '../pages/mascota/mascota';
+import {PublicacionesPage} from '../pages/publicaciones/publicaciones'
 
 import { HistorialPage } from '../pages/historial/historial';
 import { DbProvider } from '../providers/db/db';
@@ -37,6 +38,7 @@ export const firebaseConfig = {
     PerfilPage,
     MascotaPage,
     HistorialPage,
+    PublicacionesPage
    
   ],
   imports: [
@@ -55,6 +57,7 @@ export const firebaseConfig = {
     PerfilPage,
     MascotaPage,
     HistorialPage,
+    PublicacionesPage
       
     
   ],

@@ -4,7 +4,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DbProvider } from '../../providers/db/db';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
-
+declare var google: any; 
 
 /**
  * Generated class for the ModalNuevaMascotaPage page.
@@ -22,13 +22,25 @@ export class ModalNuevaMascotaPage {
 nombre: string;
 descripcion: string;
 foto: any= '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl : ViewController,private camera: Camera,private db :DbProvider,public  platform: Platform,
+coords: any={lat:0, lng:0} //coordenadas
+address: string;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams, 
+    private viewCtrl : ViewController,
+    private camera: Camera,
+    private db :DbProvider,
+    public  platform: Platform,
     public geolocation: Geolocation ) {
   }
 
   ionViewDidLoad() {
-   
-  
+   this.coords.lat= this.navParams.get('lat');
+   this.coords.lng= this.navParams.get('lng');
+   this.getAddress(this.coords).then(results=> {
+    this.address = results[0]['formatted_address'];
+  }, errStatus => {
+      // Aquí iría el código para manejar el error
+  });
   }
 
   cerrarModal(){
@@ -57,13 +69,12 @@ foto: any= '';
         console.log(err);
     });
   }
-    guardarMascota(){
-      
+    guardarMascota(){      
       let mascota = {        
         nombre: this.nombre,
         descripcion: this.descripcion,
-        foto: this.foto,       
-
+        foto: this.foto, 
+        address: this.address
         
       }
     
@@ -73,7 +84,19 @@ foto: any= '';
       })
      }
    
-     
+     getAddress(coords):any {
+      var geocoder = new google.maps.Geocoder();
+  
+      return new Promise(function(resolve, reject) {
+          geocoder.geocode({'location': coords} , function (results, status) { // llamado asincronamente
+              if (status == google.maps.GeocoderStatus.OK) {
+                  resolve(results);
+              } else {
+                  reject(status);
+              }
+          });
+      });
+  }  
   }
     
   

@@ -19,8 +19,9 @@
 
   </ion-header>
   
-  <ion-content>  
-      <button ion-button full  class="my-button"><ion-icon name="paw" ></ion-icon>Publicaciones</button>
+  <ion-content>
+    <div id="map"></div>  
+      <button ion-button full  class="my-button" (click)="irPublicaciones()"><ion-icon name="paw" ></ion-icon>Publicaciones</button>
       <button ion-button full color="secondary" class="my-button" ><ion-icon name="paw"></ion-icon>Me encontraron</button>
       <button ion-button full color="danger" class="my-button"><ion-icon name="paw"></ion-icon>Me adoptas</button>
       <button ion-button full color="dark" class="my-button"><ion-icon name="paw"></ion-icon>Cosas para mascota</button> 

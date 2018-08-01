@@ -26,21 +26,22 @@
 
       
 
-      <ion-card *ngFor="let mascota of mascota">
-        <img [src]="mascota.foto">
+      <ion-card *ngFor="let mascota of mascota" (click)="mostrarMascota(mascota)" >
+        <img [src]="mascota.foto" >
         <ion-card-content>
-          <ion-card-title>
-            {{mascota.nombre}}
+          <ion-card-title >            
+            {{mascota.nombre}}          
             </ion-card-title>
           <p>
             {{mascota.descripcion}}
           </p>
-          <p>Hemos recibido: {{ coords.lat }}, {{ coords.lng }}</p>
-          <p>{{ address }}</p>
+          <p>Hemos recibido: {{ coords.lat }}, {{ coords.lng }}</p>       
+
+         
         </ion-card-content>
         
           <ion-col>
-            <button ion-button clear small color="danger" icon-start  >
+            <button ion-button clear small color="danger" icon-start >
               <ion-icon name='warning' ></ion-icon>
               Me perdi
             </button>

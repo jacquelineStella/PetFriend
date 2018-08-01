@@ -3,6 +3,8 @@ import { ModalController,IonicPage, NavController, NavParams } from 'ionic-angul
 import { DbProvider } from '../../providers/db/db';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
+declare var google: any; 
+
 /**
  * Generated class for the MascotaPage page.
  *
@@ -17,14 +19,26 @@ import { Platform } from 'ionic-angular';
 })
 export class MascotaPage {
 mascota: any;
-coords : any = { lat: 0, lng: 0 }
+nombre: string;
+descripcion: string;
+foto: any= '';
+coords : any = { lat: 0, lng: 0 };
+address:any;
+
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modalCtrl : ModalController,
     private db :DbProvider,
     public  platform: Platform,
-    private geolocation: Geolocation) {
+    private geolocation: Geolocation,) {
+      platform.ready().then(() => {
+        // La plataforma esta lista y ya tenemos acceso a los plugins.
+          this.obtenerPosicion();
+        
+     
+       });
       
   }
 
@@ -43,7 +57,36 @@ coords : any = { lat: 0, lng: 0 }
      mimodal.present();
   }
 
+  obtenerPosicion():any{
+    this.geolocation.getCurrentPosition().then(res => {
+      this.coords.lat = res.coords.latitude;
+      this.coords.lng = res.coords.longitude;
+    })
+    .catch(
+      (error)=>{
+        console.log(error);
+      }
+    );
+  }
+//para abrir el detalle de mascota
+  mostrarMascota(){
+    let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage', this.mascota);
+    modalDetalle.present();
+  }
+ 
+//   getAddress(coords):any {
+//     var geocoder = new google.maps.Geocoder();
 
- 
- 
+//     return new Promise(function(resolve, reject) {
+//         geocoder.geocode({'location': coords} , function (results, status) { // llamado asincronamente
+//             if (status == google.maps.GeocoderStatus.OK) {
+//                 resolve(results);
+//             } else {
+//                 reject(status);
+//             }
+//         });
+//     });
+// }
+
+
 }

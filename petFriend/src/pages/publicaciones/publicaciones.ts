@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { DbProvider } from '../../providers/db/db';
 /**
  * Generated class for the PublicacionesPage page.
  *
@@ -14,12 +14,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'publicaciones.html',
 })
 export class PublicacionesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mascota:any;
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     private db : DbProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PublicacionesPage');
+    
   }
+  
 
 }

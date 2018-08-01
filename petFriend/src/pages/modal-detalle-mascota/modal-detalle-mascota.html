@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ModalDetalleMascotaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{ mascota.nombre }}</ion-title>
+         <ion-buttons start>
+          <button ion-button (click)="cerrarModal()">
+            <ion-icon name="md-close"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <!-- <p>{{coords.lat}}, {{coords.lng}}</p>
+    <p>{{address}}</p> -->
+    <!-- <ion-card>
+        <ion-card-content>
+        <form (ngSubmit)="mePerdi()">
+        <ion-item>
+          <img [src]="mascota.foto" *ngIf="mascota.foto" />
+          <button ion-button icon-left full type="button" (tap)="sacarFoto()">
+            Foto&nbsp;&nbsp;
+            <ion-icon name="camera"></ion-icon>
+          </button>
+        </ion-item>
+        <hr/>
+        <ion-item>
+          <ion-label>Descripción</ion-label>
+          <ion-textarea [(ngModel)]="mascota.descripcion" name="descripcion"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" block>Actualizar Sitio</button>
+      </form>
+      </ion-card-content>
+      </ion-card> -->
+  
+    <ion-card>
+        <img [src]="this.mascota.foto" />
+                <ion-card-content>
+           <ion-item text-wrap>             
+               <p>{{mascota.descripcion}}</p>
+            </ion-item>
+        </ion-card-content>
+        <ion-row>
+          <ion-col text-center>
+             <button ion-button icon-left clear small (click)="MePerdi()">
+               
+               <div>Me perdi</div>
+             </button>
+          </ion-col>
+        </ion-row>
+    </ion-card>
+</ion-content>
