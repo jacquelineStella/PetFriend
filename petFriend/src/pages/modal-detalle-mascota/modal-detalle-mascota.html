@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>{{ mascota.nombre }}</ion-title>
+        <ion-title>{{mascota.nombre}}</ion-title>
          <ion-buttons start>
           <button ion-button (click)="cerrarModal()">
             <ion-icon name="md-close"></ion-icon>
@@ -20,7 +20,7 @@
 <ion-content padding>
     <!-- <p>{{coords.lat}}, {{coords.lng}}</p>
     <p>{{address}}</p> -->
-    <!-- <ion-card>
+    <ion-card>
         <ion-card-content>
         <form (ngSubmit)="mePerdi()">
         <ion-item>
@@ -38,10 +38,10 @@
         <button ion-button type="submit" block>Actualizar Sitio</button>
       </form>
       </ion-card-content>
-      </ion-card> -->
+      </ion-card>
   
     <ion-card>
-        <img [src]="this.mascota.foto" />
+        <img [src]="mascota.foto" />
                 <ion-card-content>
            <ion-item text-wrap>             
                <p>{{mascota.descripcion}}</p>

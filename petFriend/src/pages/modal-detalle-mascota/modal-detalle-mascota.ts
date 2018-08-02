@@ -29,7 +29,7 @@ foto: any= '';
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalDetalleMascotaPage');
-    console.log(this.mascota.nombre);
+    console.log(this.mascota);
   }
    cerrarModal(){
      this.viewCtrl.dismiss();
