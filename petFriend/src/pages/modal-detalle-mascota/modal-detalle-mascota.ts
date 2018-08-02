@@ -14,9 +14,9 @@ import { IonicPage, NavController, NavParams,ModalController, ViewController} fr
   templateUrl: 'modal-detalle-mascota.html',
 })
 export class ModalDetalleMascotaPage {
-  mascota: any;
-  nombre: string;
-descripcion: string;
+  mascota: '';
+  nombre: '';
+descripcion: '';
 foto: any= '';
   constructor(
     public navCtrl: NavController, 
@@ -24,6 +24,8 @@ foto: any= '';
     public modalCtrl : ModalController,
     private viewCtrl: ViewController) {
       this.mascota=this.navParams.data;
+     // this.nombre= this.navParams.get('nombre');
+      // this.descripcion=this.navParams.get('descripcion');
       
   }
 

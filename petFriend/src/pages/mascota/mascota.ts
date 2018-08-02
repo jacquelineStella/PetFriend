@@ -69,11 +69,10 @@ address:any;
     );
   }
 //para abrir el detalle de mascota
-  mostrarMascota(){
-    let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage', this.mascota);
-    modalDetalle.present();
-  }
- 
+mostrarMascota(mascota){
+  let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage', mascota);
+  modalDetalle.present();
+}
 //   getAddress(coords):any {
 //     var geocoder = new google.maps.Geocoder();
 

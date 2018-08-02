@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>{{mascota.nombre}}</ion-title>
+        <ion-title>{{ mascota.nombre }}</ion-title>
          <ion-buttons start>
           <button ion-button (click)="cerrarModal()">
             <ion-icon name="md-close"></ion-icon>
@@ -40,11 +40,11 @@
       </ion-card-content>
       </ion-card>
   
-    <ion-card>
-        <img [src]="mascota.foto" />
+    <!-- <ion-card>
+        <img [src]="mascota.foto" /> 
                 <ion-card-content>
            <ion-item text-wrap>             
-               <p>{{mascota.descripcion}}</p>
+               <p>{{ mascota.descripcion }}</p>
             </ion-item>
         </ion-card-content>
         <ion-row>
@@ -55,5 +55,5 @@
              </button>
           </ion-col>
         </ion-row>
-    </ion-card>
+    </ion-card> --> 
 </ion-content>
