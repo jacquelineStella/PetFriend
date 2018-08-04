@@ -74,7 +74,7 @@ address: string;
         nombre: this.nombre,
         descripcion: this.descripcion,
         foto: this.foto, 
-        address: this.address
+        
         
       }
     

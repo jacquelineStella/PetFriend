@@ -18,32 +18,35 @@
 </ion-header>
 
 
-<ion-content padding>
-    <ion-list *ngFor="let perfil of perfil">
 
-        <ion-item>
-          <ion-label >Nombre: </ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+    <ion-content padding>
+        
+          <form *ngFor="let perfil of perfil">
+            <ion-item>
+                <ion-label floating>Nombre</ion-label>
+                <ion-input
+                  [(ngModel)]="perfil.nombre"
+                  name="nombre"
+                  type="text"
+                  required
+                >
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Telefono de contacto</ion-label>
+                  <ion-input
+                    [(ngModel)]="perfil.telefono"
+                    name="telefono"
+                    type="number"
+                    required
+                  >
+                  </ion-input>
+                </ion-item>
+            
+    </form>
+        
+        <!-- <button ion-button type="submit" block>Actualizar Sitio</button> -->
       
-        <ion-item>
-          <ion-label>Email: </ion-label>
-          <ion-input type="email"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label>Numero de contacto: </ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      
-      </ion-list>
-      
-      <div padding>
-        <button block
-         type="submit"
-        color="primary">Guardar cambios</button>
-      </div>
+    
 
-     
-
-</ion-content>
+</ion-content> 

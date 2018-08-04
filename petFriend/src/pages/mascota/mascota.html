@@ -26,7 +26,7 @@
 
       
 
-      <ion-card *ngFor="let mascota of mascota" (click)="mostrarMascota(mascota)" >
+      <ion-card *ngFor="let mascota of mascota"  >
         <img [src]="mascota.foto" >
         <ion-card-content>
           <ion-card-title >            
@@ -41,7 +41,7 @@
         </ion-card-content>
         
           <ion-col>
-            <button ion-button clear small color="danger" icon-start >
+            <button ion-button clear small color="danger" icon-start (click)="mostrarMascota(mascota)" >
               <ion-icon name='warning' ></ion-icon>
               Me perdi
             </button>

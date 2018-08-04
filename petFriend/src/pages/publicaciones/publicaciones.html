@@ -18,18 +18,13 @@
     <ion-card *ngFor="let mascota of mascota">
         <img [src]="mascota.foto" >
         <ion-card-content>
-          <ion-card-title >
-            
-            {{mascota.nombre}}
-          
+          <ion-card-title >            
+            {{ mascota.nombre }}          
             </ion-card-title>
           <p>
-            {{mascota.descripcion}}
-          </p>    
-
-         
+            {{ mascota.descripcion }}
+          </p>         
         </ion-card-content>
-      </ion-card>
-   
+      </ion-card> 
 
 </ion-content>

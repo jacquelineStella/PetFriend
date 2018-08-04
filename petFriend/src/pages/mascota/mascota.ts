@@ -44,6 +44,7 @@ address:any;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MascotaPage');
+    console.log(this.mascota);
   }
 
   ionViewDidEnter(){   

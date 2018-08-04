@@ -18,5 +18,32 @@
 
 
 <ion-content padding>
+    <!-- <ion-card *ngFor="let mascota of mascota"  >
+        <img [src]="mascota.foto" >
+        <ion-card-content>
+          <ion-card-title >            
+            {{mascota.nombre}}          
+            </ion-card-title>
+          <p>
+            {{mascota.descripcion}}
+          </p>     
+        </ion-card-content>
+    </ion-card> -->
+    <ion-list>
+        <ion-item-sliding #item *ngFor="let mascota of mascota">
+          <ion-item (click)="muestraSitio(sitio)">
+            <ion-thumbnail item-left>
+              <img [src]="mascota.foto">
+            </ion-thumbnail>
+            <h2>{{ mascota.nombre }}</h2>
+            <p>{{ mascota.descripcion }}</p>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button  color="danger" (click)="borrarMascota(mascota.id)"><ion-icon name="trash"></ion-icon>
+               Borrar
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 
 </ion-content>
