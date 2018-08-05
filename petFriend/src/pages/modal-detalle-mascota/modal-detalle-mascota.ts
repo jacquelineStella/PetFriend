@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController, ViewController} from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DbProvider } from '../../providers/db/db';
+declare var google: any; 
 /**
  * Generated class for the ModalDetalleMascotaPage page.
  *
@@ -20,6 +21,8 @@ export class ModalDetalleMascotaPage {
   nombre: '';
   descripcion: '';
   foto: any;
+  coords:any;
+  address:any;
   //perdida= { id: this.mascota.id, nombre : this.mascota.nombre, descripcion : this.mascota.descripcion, foto : this.mascota.foto,};
 
   constructor(
@@ -29,9 +32,14 @@ export class ModalDetalleMascotaPage {
     private viewCtrl: ViewController,
     private camera: Camera,
     private db: DbProvider ) {
-      this.mascota=this.navParams.data;
-     // this.nombre= this.navParams.get('nombre');
-      // this.descripcion=this.navParams.get('descripcion');
+      //this.mascota=this.navParams.data;
+      this.mascota= this.navParams.get('mascota');
+      this.coords=this.navParams.get('coords');
+      this.getAddress(this.coords).then(results=> {
+        this.address = results[0]['formatted_address'];
+      }, errStatus => {
+          // Aquí iría el código para manejar el error
+      });
       
   }
 
@@ -54,13 +62,27 @@ export class ModalDetalleMascotaPage {
      id : this.mascota.id,
      nombre: this.mascota.nombre,
      description: this.mascota.descripcion,
-     foto: this.mascota.foto,     
+     foto: this.mascota.foto,    
+     address: this.address, 
    }
    this.db.publicar(perdida).then(res=>{
        console.log('Sitio modificado en firebase');
        this.cerrarModal();
    })
   }
+  getAddress(coords):any {
+    var geocoder = new google.maps.Geocoder();
+
+    return new Promise(function(resolve, reject) {
+        geocoder.geocode({'location': coords} , function (results, status) { // llamado asincronamente
+            if (status == google.maps.GeocoderStatus.OK) {
+                resolve(results);
+            } else {
+                reject(status);
+            }
+        });
+    });
+}
 }
 
 

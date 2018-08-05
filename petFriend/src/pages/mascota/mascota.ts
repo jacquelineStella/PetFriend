@@ -3,8 +3,8 @@ import { ModalController,IonicPage, NavController, NavParams } from 'ionic-angul
 import { DbProvider } from '../../providers/db/db';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
-import { Events } from 'ionic-angular';
-declare var google: any; 
+
+
 
 /**
  * Generated class for the MascotaPage page.
@@ -35,11 +35,12 @@ address:any;
     private db :DbProvider,
     public  platform: Platform,
     private geolocation: Geolocation,
-    private events: Events) {
-      this.listenEvents();
+   ) {
+
       platform.ready().then(() => {
         // La plataforma esta lista y ya tenemos acceso a los plugins.
           this.obtenerPosicion();
+       
         
      
        });
@@ -75,30 +76,17 @@ address:any;
   }
 //para abrir el detalle de mascota
 mostrarMascota(mascota){
-  let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage', mascota);
+  let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage',{mascota:  mascota, coords: this.coords});
   modalDetalle.present();
 }
-listenEvents(): void {
-  this.events.publish('user:position', (position) => {
-    console.log(position);
-    return position;
-  });
-}﻿
 
+ 
 }
-//   getAddress(coords):any {
-//     var geocoder = new google.maps.Geocoder();
 
-//     return new Promise(function(resolve, reject) {
-//         geocoder.geocode({'location': coords} , function (results, status) { // llamado asincronamente
-//             if (status == google.maps.GeocoderStatus.OK) {
-//                 resolve(results);
-//             } else {
-//                 reject(status);
-//             }
-//         });
-//     });
-// }
+
+
+  
+
 
 
 

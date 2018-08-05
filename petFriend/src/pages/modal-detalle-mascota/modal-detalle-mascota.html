@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title></ion-title>
+        <ion-title>{{address}}</ion-title>
          <ion-buttons start>
           <button ion-button (click)="cerrarModal()">
             <ion-icon name="md-close"></ion-icon>
@@ -25,16 +25,17 @@
           <img [src]="this.mascota.foto"  />          
         </ion-item>
         <hr/>
+        <ion-label>Nombre</ion-label>
         <ion-input
           [(ngModel)]="this.mascota.nombre"
-          name="nombre" >Nombre
+          name="nombre" >
         </ion-input>
         <ion-item>
           <ion-label>Descripción</ion-label>
           <ion-textarea [(ngModel)]="this.mascota.descripcion" name="descripcion"></ion-textarea>
         </ion-item>
         
-        <button ion-button type="submit" block>Actualizar Sitio</button>
+        <button ion-button type="submit" block>Publicar</button>
       </form>
       </ion-card-content>
       </ion-card>

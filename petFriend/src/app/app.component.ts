@@ -27,7 +27,7 @@ export class MyApp {
       private auth : AuthProvider,
       private events: Events,
       private geolocation: Geolocation) {
-        this.posicion();
+      
 
     platform.ready().then(() => {
       //Si el usuario tiene seccion activa, direcciona a la pagina principal
@@ -55,11 +55,8 @@ irPerfil(){
  irHistorial() {
   this.nav.push(HistorialPage);
  }
-posicion(){
-  this.geolocation.getCurrentPosition().then((position) => {
-    this.events.publish('user:position', position);
-  });
-}
+
+
 
 }
 
