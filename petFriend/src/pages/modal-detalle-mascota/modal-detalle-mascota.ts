@@ -23,8 +23,7 @@ export class ModalDetalleMascotaPage {
   foto: any;
   coords:any;
   address:any;
-  //perdida= { id: this.mascota.id, nombre : this.mascota.nombre, descripcion : this.mascota.descripcion, foto : this.mascota.foto,};
-
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -32,9 +31,10 @@ export class ModalDetalleMascotaPage {
     private viewCtrl: ViewController,
     private camera: Camera,
     private db: DbProvider ) {
-      //this.mascota=this.navParams.data;
+      //parametros de MascotaPage
       this.mascota= this.navParams.get('mascota');
       this.coords=this.navParams.get('coords');
+      //Se convierte a direccion las coordenadas
       this.getAddress(this.coords).then(results=> {
         this.address = results[0]['formatted_address'];
       }, errStatus => {

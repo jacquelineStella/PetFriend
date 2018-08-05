@@ -48,14 +48,14 @@
           </ion-col> 
           
           <ion-col>
-              <button ion-button clear small  icon-start>
+              <button ion-button clear small  icon-start (click)="mostrarMascotaPermanente(mascota)" >
                 <ion-icon name='paw'></ion-icon>
                 adopcion permanente
               </button>
             </ion-col>
             
             <ion-col>
-                <button ion-button clear small  icon-start>
+                <button ion-button clear small  icon-start (click)="mostrarMascotaTemporal(mascota)">
                   <ion-icon name='paw'></ion-icon>
                   adopcion temporal
                 </button>

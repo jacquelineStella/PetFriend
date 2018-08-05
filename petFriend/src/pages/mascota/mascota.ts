@@ -63,6 +63,7 @@ address:any;
      mimodal.present();
   }
 
+  //coordenadas localizacion del usuario
   obtenerPosicion():any{
     this.geolocation.getCurrentPosition().then(res => {
       this.coords.lat = res.coords.latitude;
@@ -74,12 +75,21 @@ address:any;
       }
     );
   }
-//para abrir el detalle de mascota
+//Apertur de paginas "Modal"
 mostrarMascota(mascota){
   let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage',{mascota:  mascota, coords: this.coords});
   modalDetalle.present();
 }
 
+mostrarMascotaPermanente(mascota){
+  let modalPermanente= this.modalCtrl.create('ModalAdopcionPermanentePage',{mascota:  mascota, coords: this.coords});
+  modalPermanente.present();
+}
+
+mostrarMascotaTemporal(mascota){
+  let modalTemporal= this.modalCtrl.create('ModalAdopcionTemporalPage',{mascota:  mascota, coords: this.coords});
+  modalTemporal.present();
+}
  
 }
 
