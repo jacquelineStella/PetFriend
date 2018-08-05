@@ -71,6 +71,9 @@ getTemporal(){
   return this.afDB.list('adopcionTemporal/').valueChanges();
 }
 
+get(){
+  return this.afDB.database.ref('get/').child('iud').orderByValue();
+}
 
 }
 

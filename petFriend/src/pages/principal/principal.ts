@@ -51,16 +51,44 @@ export class PrincipalPage {
   loadMap(){
     let mapContainer=document.getElementById('map');
       this.map=new google.maps.Map(mapContainer,{
-        center: this.coords,zoom: 12
+        center: this.coords
+        ,zoom: 12
       });
+      this.marcador(this.map, this.coords );
+      this.referencia(this.map,this.coords )
+      
+    
              // Colocamos el marcador
-    let miMarker = new google.maps.Marker({
-      icon : 'assets/imgs/ico_estoy_aqui.png',
-      map: this.map,
-      position: this.coords
-  });
+  //   let miMarker = new google.maps.Marker({
+  //     icon : 'assets/imgs/ico_estoy_aqui.png',
+  //     map: this.map,
+  //     position: this.coords
+  // });
+  // let request = {
+  //   location: myLatlng,
+  //   radius: 5000,
+  //   types: ['cafe']
+  // };
 
   }
+  referencia(map,posicion){
+      let referencia= new google.maps.referencia({
+        location: posicion,
+        map:this.map,
+        radius:2000,
+        types:['veterinaria']
+      });
+
+  }
+
+  marcador( map, position){
+    let miMarker = new google.maps.Marker({
+      icon : 'assets/imgs/ico_estoy_aqui.png',
+      map: map,
+      position: position
+    });
+  }
+
 
   obtenerPosicion(): any{
     this.geolocation.getCurrentPosition().then(res=>{
