@@ -9,6 +9,8 @@ import { PrincipalPage } from '../pages/principal/principal';
 import { PerfilPage} from '../pages/perfil/perfil';
 import { MascotaPage} from '../pages/mascota/mascota';
 import { HistorialPage} from '../pages/historial/historial';
+import { Events} from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 @Component({
   templateUrl: 'app.html',
  
@@ -19,7 +21,13 @@ export class MyApp {
  rootPage:any;
 
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private auth : AuthProvider) {
+  constructor(platform: Platform,
+     statusBar: StatusBar, 
+     splashScreen: SplashScreen,
+      private auth : AuthProvider,
+      private events: Events,
+      private geolocation: Geolocation) {
+        this.posicion();
 
     platform.ready().then(() => {
       //Si el usuario tiene seccion activa, direcciona a la pagina principal
@@ -47,7 +55,11 @@ irPerfil(){
  irHistorial() {
   this.nav.push(HistorialPage);
  }
-
+posicion(){
+  this.geolocation.getCurrentPosition().then((position) => {
+    this.events.publish('user:position', position);
+  });
+}
 
 }
 

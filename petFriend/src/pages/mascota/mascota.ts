@@ -3,6 +3,7 @@ import { ModalController,IonicPage, NavController, NavParams } from 'ionic-angul
 import { DbProvider } from '../../providers/db/db';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 declare var google: any; 
 
 /**
@@ -23,6 +24,7 @@ nombre: string;
 descripcion: string;
 foto: any= '';
 coords : any = { lat: 0, lng: 0 };
+coords2 : any = { lat: 0, lng: 0 };
 address:any;
 
 
@@ -32,7 +34,9 @@ address:any;
     public modalCtrl : ModalController,
     private db :DbProvider,
     public  platform: Platform,
-    private geolocation: Geolocation,) {
+    private geolocation: Geolocation,
+    private events: Events) {
+      this.listenEvents();
       platform.ready().then(() => {
         // La plataforma esta lista y ya tenemos acceso a los plugins.
           this.obtenerPosicion();
@@ -74,6 +78,14 @@ mostrarMascota(mascota){
   let modalDetalle= this.modalCtrl.create('ModalDetalleMascotaPage', mascota);
   modalDetalle.present();
 }
+listenEvents(): void {
+  this.events.publish('user:position', (position) => {
+    console.log(position);
+    return position;
+  });
+}﻿
+
+}
 //   getAddress(coords):any {
 //     var geocoder = new google.maps.Geocoder();
 
@@ -89,4 +101,4 @@ mostrarMascota(mascota){
 // }
 
 
-}
+
