@@ -12,19 +12,26 @@
 
 </ion-header>
 
-
 <ion-content padding>
 
-    <ion-card *ngFor="let mascota of mascota">
-        <img [src]="mascota.foto" >
-        <ion-card-content>
-          <ion-card-title >            
-            {{ mascota.nombre }}          
-            </ion-card-title>
-          <p>
-            {{ mascota.descripcion }}
-          </p>         
-        </ion-card-content>
-      </ion-card> 
+  <ion-card *ngFor="let mascota of mascota"  >
+    <img [src]="mascota.foto" >
+    <ion-card-content>
+      <ion-card-title >            
+        {{mascota.nombre}}          
+        </ion-card-title>
+      <p>
+        {{mascota.descripcion}}
+      </p>      
+
+     
+    </ion-card-content>
+    
+      
+      
+    
+    
+  </ion-card>
+  
 
 </ion-content>

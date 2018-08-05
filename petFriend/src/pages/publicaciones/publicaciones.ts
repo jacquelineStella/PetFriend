@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
 /**
  * Generated class for the PublicacionesPage page.
  *
@@ -15,18 +16,35 @@ import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
   templateUrl: 'publicaciones.html',
 })
 export class PublicacionesPage {
-  mascota:any; 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private db :DbProvider) {
-  }
+mascota: any;
+mascotas: any;
+nombre: string;
+descripcion: string;
+foto: any= '';
+coords : any = { lat: 0, lng: 0 };
+address:any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,    
+    private db :DbProvider,
+    public  platform: Platform,
+    ) {}
+        
+    ionViewDidEnter(){   
+      this.db.getPerdidasTodas().subscribe(mascota=>{
+        this.mascota = mascota;
+      
+      })
+    }    
+ 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HistorialPage');
-    console.log(this.mascota);
+    console.log('ionViewDidLoad PublicacionesPage');
+   
   }
-  ionViewDidEnter(){   
-    this.db.getPerdidasTodas().subscribe(mascota=>{
-      this.mascota = mascota;
-    })
-  }
+
+  
+
 
 }

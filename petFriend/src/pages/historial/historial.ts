@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
 import { AlertController } from 'ionic-angular';
+import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the HistorialPage page.
@@ -20,19 +21,23 @@ export class HistorialPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private db :DbProvider,
-    public alertCtrl : AlertController) {
+    public alertCtrl : AlertController,
+    public database: AngularFireDatabase) {
+      
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistorialPage');
     console.log(this.mascota);
   }
-  ionViewDidEnter(){   
+  //PUBLICACIONES DEL USUARIO
+  ionViewDidEnter(){ 
+    
     this.db.getPerdidas().subscribe(mascota=>{
-      this.mascota = mascota;
+      this.mascota = mascota;    
     })
   }
-
+  //BORRAR MASCOTAS QUE EL USUARIO TIENE PUBLICADAS 
   borrarMascota(id){
 
     let alert = this.alertCtrl.create({

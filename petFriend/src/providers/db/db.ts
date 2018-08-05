@@ -43,17 +43,39 @@ getPerdidasTodas(){
   return this.afDB.list('perdida/').valueChanges();
 }
 
-publicar(perdida){
-  if(!perdida.id){
-    perdida.id  = Date.now();
-  }
-  return this.afDB.database.ref('perdida/'+this.auth.getUser()+'/'+perdida.id).set(perdida)
+publicar(perdida){ 
+  
+  return this.afDB.database.ref('perdida/'+this.auth.getUser()).set(perdida)
 }
 
 public borrarPerdida(id){
   this.afDB.database.ref('perdida/'+this.auth.getUser()+'/'+id).remove();
 
 }
+// getAllCatList() {
+//   var promise = new Promise((resolve, reject) => {
+//       this.afDB.database.ref('perdida/').once('value', (snapshot) => {
+//           let Catdata = snapshot.val();
+//           let temparr = [];
+//           for (var i in Catdata) {
+//               temparr.push(Catdata[i]);
+//           }
+//           resolve(temparr);
+//       }).catch((err) => {
+//           reject(err);
+//       })
+//   })
+//   return promise;
+// }
+
+
+// publicar(perdida){
+//   if(!perdida.id){
+//     perdida.id  = Date.now();
+//   }
+//   return this.afDB.database.ref('perdida/'+this.auth.getUser()+'/'+perdida.id).set(perdida)
+// }
+
 
 
 }
