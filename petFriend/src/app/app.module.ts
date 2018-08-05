@@ -15,7 +15,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { MascotaPage } from '../pages/mascota/mascota';
 import {PublicacionesPage} from '../pages/publicaciones/publicaciones'
-
+import {AdopcionesPage} from '../pages/adopciones/adopciones';
 import { HistorialPage } from '../pages/historial/historial';
 import { DbProvider } from '../providers/db/db';
 import { Camera } from '@ionic-native/camera';
@@ -38,7 +38,8 @@ export const firebaseConfig = {
     PerfilPage,
     MascotaPage,
     HistorialPage,
-    PublicacionesPage
+    PublicacionesPage,
+    AdopcionesPage
    
   ],
   imports: [
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     PerfilPage,
     MascotaPage,
     HistorialPage,
-    PublicacionesPage
+    PublicacionesPage,
+    AdopcionesPage
       
     
   ],

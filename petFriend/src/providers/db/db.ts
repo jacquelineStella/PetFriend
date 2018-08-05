@@ -63,6 +63,13 @@ AdopcionTemporal(adopciont){
   return this.afDB.database.ref('adopcionTemporal/'+this.auth.getUser()).set(adopciont)
 }
 
+getPermanente(){
+  return this.afDB.list('adopcionPermanente/').valueChanges();
+}
+
+getTemporal(){
+  return this.afDB.list('adopcionTemporal/').valueChanges();
+}
 
 
 }
