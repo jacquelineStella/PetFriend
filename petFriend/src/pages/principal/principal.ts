@@ -23,6 +23,7 @@ export class PrincipalPage {
   map:any; //Manejador Mapa
   coords: any={lat:0, lng:0} //coordenadas
   
+  
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public auth : AuthProvider,
@@ -91,7 +92,8 @@ export class PrincipalPage {
 
 
   obtenerPosicion(): any{
-    this.geolocation.getCurrentPosition().then(res=>{
+    let locationOptions = { timeout: 30000, enableHighAccuracy: true };
+    this.geolocation.getCurrentPosition(locationOptions).then(res=>{
       this.coords.lat= res.coords.latitude;
       this.coords.lng=res.coords.longitude;
       this.loadMap();
