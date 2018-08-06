@@ -22,24 +22,27 @@ export class AdopcionesPage {
   descripcion: string;
   foto: any= '';
   address:any;
+  permanentes:any;
+  temporales:any;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams, 
      private db :DbProvider,
      public  platform: Platform,) {
+      this.db.getPermanentes().then(res => {
+        this.permanentes = res;
+    })
+    this.db.getTemporales().then(res => {
+      this.temporales = res;
+  })
   }
   ionViewDidEnter(){   
+    
+    
    
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdopcionesPage');
-    this.db.getPermanente().subscribe(mascota=>{
-      this.mascota1= mascota;
-    })
-      this.db.getTemporal().subscribe(mascota=>{
-        this.mascota2= mascota;
-    
-    })
+  ionViewDidLoad() {  
+  
   }
 
 }

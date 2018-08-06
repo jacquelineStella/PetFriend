@@ -24,7 +24,7 @@
         </ion-segment>
       </div>
       
-      <div [ngSwitch]="pet" *ngFor="let mascota of mascota1">
+      <div [ngSwitch]="pet" *ngFor="let mascota of permanentes">
         <ion-list *ngSwitchCase="'Permanente'">
           <ion-item>
             <ion-thumbnail item-start>
@@ -35,7 +35,7 @@
           
         </ion-list>
       </div>
-      <div [ngSwitch]="pet" *ngFor="let mascota of mascota2">
+      <div [ngSwitch]="pet" *ngFor="let mascota of temporales">
           <ion-list *ngSwitchCase="'Temporal'">
             <ion-item>
               <ion-thumbnail item-start>

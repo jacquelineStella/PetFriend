@@ -57,7 +57,7 @@ export class ModalAdopcionPermanentePage {
     description: this.mascota.descripcion,
     foto: this.mascota.foto,    
     address: this.address,
-    tipo: "Permanente"  
+    
     
   }
   this.db.AdopcionPermanente(adopcion).then(res=>{
