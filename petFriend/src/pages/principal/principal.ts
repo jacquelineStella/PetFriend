@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
 import { AuthProvider } from '../../providers/auth/auth';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
 import {AdopcionesPage} from '../adopciones/adopciones';
+import {EncontradosPage} from '../encontrados/encontrados'
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
@@ -49,6 +50,9 @@ export class PrincipalPage {
 
   irAdopciones(){
     this.navCtrl.push(AdopcionesPage);
+  }
+  irEncontrados(){
+    this.navCtrl.push(EncontradosPage);
   }
 
   irMapa(){

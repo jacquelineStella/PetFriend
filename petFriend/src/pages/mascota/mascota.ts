@@ -25,6 +25,8 @@ descripcion: string;
 foto: any= '';
 coords : any = { lat: 0, lng: 0 };
 address:any;
+perfil: any;
+p: any;
 
 
   constructor(
@@ -56,6 +58,7 @@ address:any;
       this.mascota = mascota;
       })
 
+     
  
   }
   nuevaMascota(){

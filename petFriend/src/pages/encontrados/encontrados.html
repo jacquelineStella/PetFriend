@@ -1,0 +1,35 @@
+<!--
+  Generated template for the EncontradosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>encontrados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab right top>
+        <button ion-fab (tap)="nuevaMascota()">          
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>
+
+      
+  <ion-card *ngFor="let mascota of temparrCat"  >
+      <img [src]="mascota.foto" >
+      <ion-card-content>
+        <ion-card-title >            
+          {{mascota.nombre}}          
+          </ion-card-title>
+        <p>{{mascota.descripcion}}</p>
+        <p>{{mascota.address}}</p>
+      </ion-card-content>
+    </ion-card>
+    
+
+</ion-content>

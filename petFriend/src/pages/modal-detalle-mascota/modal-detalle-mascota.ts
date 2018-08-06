@@ -22,7 +22,10 @@ export class ModalDetalleMascotaPage {
   descripcion: '';
   foto: any;
   coords:any;
-  address:any; 
+  address:any;  
+  perfil: any;
+  p: any;
+ 
 
   constructor(
     public navCtrl: NavController, 
@@ -33,12 +36,19 @@ export class ModalDetalleMascotaPage {
       //parametros de MascotaPage
       this.mascota= this.navParams.get('mascota');
       this.coords=this.navParams.get('coords');
+   
       //Se convierte a direccion las coordenadas
       this.getAddress(this.coords).then(results=> {
         this.address = results[0]['formatted_address'];
       }, errStatus => {
           // Aquí iría el código para manejar el error
       });
+
+      
+        this.perfil=this.db.getPerfi();
+        console.log(this.perfil);     
+        
+    
       
      
   }
@@ -62,7 +72,8 @@ export class ModalDetalleMascotaPage {
      nombre: this.mascota.nombre,
      description: this.mascota.descripcion,
      foto: this.mascota.foto,    
-     address: this.address 
+     address: this.address ,
+     nombreContacto: this.perfil,
    }
    this.db.publicar(perdida).then(res=>{
        console.log('Sitio modificado en firebase');

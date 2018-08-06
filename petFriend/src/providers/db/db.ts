@@ -21,9 +21,14 @@ export class DbProvider {
     perfil.id  = Date.now();
     return this.afDB.database.ref('perfil/'+this.auth.getUser()+'/'+perfil.id).set(perfil)
  }
-
+ 
   getPerfil(){
     return this.afDB.list('perfil/'+this.auth.getUser()).valueChanges();
+  }
+
+
+  getPerfi(){
+    return this.afDB.database.ref('Perfil'+this.auth.getUser()+'/').orderByChild('telefono')
   }
   guardarMascota(mascota){
     if(!mascota.id){
@@ -31,6 +36,13 @@ export class DbProvider {
     }
     return this.afDB.database.ref('mascota/'+this.auth.getUser()+'/'+mascota.id).set(mascota)
  }
+
+ guardarMascotaEncontrada(mascota){
+  if(!mascota.id){
+  mascota.id  = Date.now();
+  }
+  return this.afDB.database.ref('encontradas/'+this.auth.getUser()+'/'+mascota.id).set(mascota)
+}
 
 getMascota(){
   return this.afDB.list('mascota/'+this.auth.getUser()).valueChanges();
@@ -73,6 +85,8 @@ public borrarPerdida(id){
   this.afDB.database.ref('perdida/'+this.auth.getUser()+'/'+id).remove();
 
 }
+
+
 
 
 getPerdidasTodas()  {
@@ -127,6 +141,24 @@ getEncontradas()  {
       for (var key in catData) {
         for (var key2 in catData[key]) {
           temparr.push(catData[key][key2])
+        }
+      }
+      resolve(temparr);
+    });
+  })
+}
+
+
+getPerfilSolo()  {
+  return new Promise((resolve, reject) => {
+    this.afDB.database.ref('Perfil'+this.auth.getUser()+'/').orderByChild('uid').once('value', snapshot => {
+      let catData = snapshot.val();
+      let temparr = [];
+      for (var key in catData) {
+        for (var key2 in catData[key]) {         
+           
+          temparr.push(catData[key][key2])   
+      
         }
       }
       resolve(temparr);
