@@ -5,14 +5,23 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>mapa</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-    <div #map id="map" style="height: 80%;"></div> 
-</ion-content>
+    <ion-toolbar color="primary">
+      <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()" placeholder="Search for a place"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content>
+  
+    <ion-list [hidden]="autocompleteItems.length == 0">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+  
+    <div id='map'></div>
+  </ion-content>
+  
+  <ion-footer>
+    <button class="geolocation-btn" ion-button full (click)="tryGeolocation()"> Try Geolocation </button>
+  </ion-footer>
