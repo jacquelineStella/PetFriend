@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
 import { AuthProvider } from '../../providers/auth/auth';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
 import {AdopcionesPage} from '../adopciones/adopciones';
+import {MapaPage} from '../mapa/mapa';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
@@ -36,6 +37,7 @@ export class PrincipalPage {
      //obtener posicion del usuario
      platform.ready().then(()=>{
         this.obtenerPosicion();
+     
      });
      
   }
@@ -49,6 +51,10 @@ export class PrincipalPage {
     this.navCtrl.push(AdopcionesPage);
   }
 
+  irMapa(){
+    this.navCtrl.push(MapaPage);
+  }
+
   loadMap(){
     let mapContainer=document.getElementById('map');
       this.map=new google.maps.Map(mapContainer,{
@@ -56,7 +62,7 @@ export class PrincipalPage {
         ,zoom: 12
       });
       this.marcador(this.map, this.coords );
-      this.referencia(this.map,this.coords )
+      //This.referencia(this.map,this.coords )
       
     
              // Colocamos el marcador
@@ -72,15 +78,15 @@ export class PrincipalPage {
   // };
 
   }
-  referencia(map,posicion){
-      let referencia= new google.maps.referencia({
-        location: posicion,
-        map:this.map,
-        radius:2000,
-        types:['veterinaria']
-      });
+  // referencia(map,posicion){
+  //     let referencia= new google.maps.referencia({
+  //       location: posicion,
+  //       map:this.map,
+  //       radius:2000,
+  //       types:['veterinaria']
+  //     });
 
-  }
+  // }
 
   marcador( map, position){
     let miMarker = new google.maps.Marker({
@@ -101,6 +107,7 @@ export class PrincipalPage {
     .catch(
 
       (error)=>{
+       
         console.log(error);        
       }
       );

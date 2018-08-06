@@ -39,18 +39,28 @@ getPerdidas(){
   return this.afDB.list('perdida/'+this.auth.getUser()).valueChanges();
 }
 
-getPerdidasTodas(){
-  return this.afDB.list('perdida/').valueChanges();
-}
+
 
 publicar(perdida){ 
+  if(!perdida.id){
+    perdida.id  = Date.now();
+    }
   
-  return this.afDB.database.ref('perdida/'+this.auth.getUser()).set(perdida)
+  return this.afDB.database.ref('perdida/'+this.auth.getUser()+'/'+perdida.id).set(perdida)
 }
 
 AdopcionPermanente(adopcion){ 
-  
-  return this.afDB.database.ref('adopcionPermanente/'+this.auth.getUser()).set(adopcion)
+  if(!adopcion.id){
+    adopcion.id  = Date.now();
+    }  
+  return this.afDB.database.ref('adopcionPermanente/'+this.auth.getUser()+'/'+adopcion.id).set(adopcion)
+}
+
+AdopcionTemporal(adopciont){ 
+  if(!adopciont.id){
+    adopciont.id  = Date.now();
+    }  
+  return this.afDB.database.ref('adopcionTemporal/'+this.auth.getUser()+'/'+adopciont.id).set(adopciont)
 }
 
 public borrarPerdida(id){
@@ -58,23 +68,67 @@ public borrarPerdida(id){
 
 }
 
-AdopcionTemporal(adopciont){ 
-  
-  return this.afDB.database.ref('adopcionTemporal/'+this.auth.getUser()).set(adopciont)
+
+getPerdidasTodas()  {
+  return new Promise((resolve, reject) => {
+    this.afDB.database.ref('perdida').orderByChild('uid').once('value', snapshot => {
+      let catData = snapshot.val();
+      let temparr = [];
+      for (var key in catData) {
+        for (var key2 in catData[key]) {
+          temparr.push(catData[key][key2])
+        }
+      }
+      resolve(temparr);
+    });
+  })
+}
+getPermanentes()  {
+  return new Promise((resolve, reject) => {
+    this.afDB.database.ref('adopcionPermanente').orderByChild('uid').once('value', snapshot => {
+      let catData = snapshot.val();
+      let temparr = [];
+      for (var key in catData) {
+        for (var key2 in catData[key]) {
+          temparr.push(catData[key][key2])
+        }
+      }
+      resolve(temparr);
+    });
+  })
 }
 
-getPermanente(){
-  return this.afDB.list('adopcionPermanente/').valueChanges();
+getTemporales()  {
+  return new Promise((resolve, reject) => {
+    this.afDB.database.ref('adopcionTemporal').orderByChild('uid').once('value', snapshot => {
+      let catData = snapshot.val();
+      let temparr = [];
+      for (var key in catData) {
+        for (var key2 in catData[key]) {
+          temparr.push(catData[key][key2])
+        }
+      }
+      resolve(temparr);
+    });
+  })
 }
 
-getTemporal(){
-  return this.afDB.list('adopcionTemporal/').valueChanges();
+getEncontradas()  {
+  return new Promise((resolve, reject) => {
+    this.afDB.database.ref('encontradas').orderByChild('uid').once('value', snapshot => {
+      let catData = snapshot.val();
+      let temparr = [];
+      for (var key in catData) {
+        for (var key2 in catData[key]) {
+          temparr.push(catData[key][key2])
+        }
+      }
+      resolve(temparr);
+    });
+  })
+}
 }
 
-get(){
-  return this.afDB.database.ref('get/').child('iud').orderByValue();
-}
 
-}
 
 

@@ -63,7 +63,7 @@ export class ModalDetalleMascotaPage {
      nombre: this.mascota.nombre,
      description: this.mascota.descripcion,
      foto: this.mascota.foto,    
-     address: this.address, 
+     //address: this.address 
    }
    this.db.publicar(perdida).then(res=>{
        console.log('Sitio modificado en firebase');

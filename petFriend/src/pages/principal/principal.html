@@ -20,11 +20,11 @@
   </ion-header>
   
   <ion-content>
-    <div id="map"></div>  
+    <div #map id="map" style="height: 80%;"></div>  
       <button ion-button full  class="my-button" (click)="irPublicaciones()"><ion-icon name="paw" ></ion-icon>Publicaciones</button>
       <button ion-button full color="secondary" class="my-button" ><ion-icon name="paw"></ion-icon>Me encontraron</button>
       <button ion-button full color="danger" class="my-button" (click)=irAdopciones()><ion-icon name="paw"></ion-icon>Me adoptas</button>
-      <button ion-button full color="dark" class="my-button"><ion-icon name="paw"></ion-icon>Cosas para mascota</button> 
+      <button ion-button full color="dark" class="my-button" (click)=irMapa()><ion-icon name="paw"></ion-icon>Cosas para mascota</button> 
 
       
   </ion-content>

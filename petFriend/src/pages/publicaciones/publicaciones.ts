@@ -23,19 +23,27 @@ descripcion: string;
 foto: any= '';
 coords : any = { lat: 0, lng: 0 };
 address:any;
+temparrCat: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,    
     private db :DbProvider,
     public  platform: Platform,
-    ) {}
+    ) {
+      this.db.getPerdidasTodas()
+    .then(res => {
+      this.temparrCat = res;
+    })
+    console.log(this.temparrCat);
+    //   this.db.getPerdidasTodas().then(res => {
+    //     this.temparrCat = res;
+    // })
+    }
         
-    ionViewDidEnter(){   
-      this.db.getPerdidasTodas().subscribe(mascota=>{
-        this.mascota = mascota;
+    ionViewDidEnter(){    
       
-      })
+    
     }    
  
 

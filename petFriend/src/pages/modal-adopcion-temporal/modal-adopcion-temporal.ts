@@ -55,8 +55,8 @@ export class ModalAdopcionTemporalPage {
     nombre: this.mascota.nombre,
     description: this.mascota.descripcion,
     foto: this.mascota.foto,    
-    address: this.address,
-    tipo: "Temporal" 
+    address: this.address
+   
     
   }
   this.db.AdopcionTemporal(adopciont).then(res=>{
