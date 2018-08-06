@@ -23,6 +23,10 @@ export class ModalEncontradaPage {
   foto: any= '';
   coords: any={lat:0, lng:0} //coordenadas
   address: string;
+  contactoNombre:any;
+  telefono:any;
+  p: any;
+ 
 
 
   constructor(public navCtrl: NavController,
@@ -68,6 +72,17 @@ export class ModalEncontradaPage {
         console.log(err);
     });
   }
+  ionViewDidEnter(){   
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0];
+      this.telefono=this.p[1];
+      console.log(this.contactoNombre)
+         })
+
+   
+  }
 
   getAddress(coords):any {
     var geocoder = new google.maps.Geocoder();
@@ -88,7 +103,10 @@ guardarMascotaEncontrada(){
     nombre: this.nombre,
     descripcion: this.descripcion,
     foto: this.foto,
-    //address: this.address,       
+    address: this.address ,
+    contactoNombre: this.contactoNombre,
+    telefono: this.telefono
+         
     
   }
 

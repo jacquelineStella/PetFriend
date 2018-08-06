@@ -23,6 +23,10 @@ export class ModalAdopcionTemporalPage {
   foto: any;
   coords:any;
   address:any;
+  contactoNombre:any;
+  telefono:any; 
+  p: any;
+ 
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -41,6 +45,17 @@ export class ModalAdopcionTemporalPage {
            // Aquí iría el código para manejar el error
        });
   }
+  ionViewDidEnter(){   
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0];
+      this.telefono=this.p[1];
+      console.log(this.contactoNombre)
+         })
+
+   
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalAdopcionTemporalPage');
@@ -55,7 +70,9 @@ export class ModalAdopcionTemporalPage {
     nombre: this.mascota.nombre,
     description: this.mascota.descripcion,
     foto: this.mascota.foto,    
-    address: this.address
+    address: this.address,
+    contactoNombre: this.contactoNombre,
+    telefono: this.telefono
    
     
   }

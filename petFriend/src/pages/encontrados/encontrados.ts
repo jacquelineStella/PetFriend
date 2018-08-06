@@ -25,6 +25,8 @@ export class EncontradosPage {
   coords : any = { lat: 0, lng: 0 };
   address:any;
   temparrCat: any;
+  contactoNombre:any;
+  telefono:any;
 
 
   constructor(public navCtrl: NavController, 

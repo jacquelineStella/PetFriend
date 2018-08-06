@@ -25,8 +25,6 @@ descripcion: string;
 foto: any= '';
 coords : any = { lat: 0, lng: 0 };
 address:any;
-perfil: any;
-p: any;
 
 
   constructor(
@@ -42,8 +40,9 @@ p: any;
       platform.ready().then(() => {
         // La plataforma esta lista y ya tenemos acceso a los plugins.
           this.obtenerPosicion();
-
        });
+
+   
       
   }
 
@@ -57,8 +56,7 @@ p: any;
     this.db.getMascota().subscribe(mascota=>{
       this.mascota = mascota;
       })
-
-     
+      
  
   }
   nuevaMascota(){

@@ -16,6 +16,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { MascotaPage } from '../pages/mascota/mascota';
 import { PublicacionesPage} from '../pages/publicaciones/publicaciones'
 import {AdopcionesPage} from '../pages/adopciones/adopciones';
+import {MapaPage} from '../pages/mapa/mapa';
 import { HistorialPage } from '../pages/historial/historial';
 import { EncontradosPage} from '../pages/encontrados/encontrados';
 import { DbProvider } from '../providers/db/db';
@@ -41,8 +42,8 @@ export const firebaseConfig = {
     HistorialPage,
     PublicacionesPage,
     AdopcionesPage,
-    EncontradosPage
-   
+   MapaPage,
+   EncontradosPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,8 @@ export const firebaseConfig = {
     HistorialPage,
     PublicacionesPage,
     AdopcionesPage,
-    EncontradosPage
+    EncontradosPage,
+    MapaPage
       
     
   ],

@@ -24,6 +24,7 @@ descripcion: string;
 foto: any= '';
 coords: any={lat:0, lng:0} //coordenadas
 address: string;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     private viewCtrl : ViewController,
@@ -36,6 +37,7 @@ address: string;
   ionViewDidLoad() {
    this.coords.lat= this.navParams.get('lat');
    this.coords.lng= this.navParams.get('lng');
+  
    this.getAddress(this.coords).then(results=> {
     this.address = results[0]['formatted_address'];
   }, errStatus => {
@@ -73,8 +75,7 @@ address: string;
       let mascota = {        
         nombre: this.nombre,
         descripcion: this.descripcion,
-        foto: this.foto, 
-        
+        foto: this.foto,            
         
       }
     

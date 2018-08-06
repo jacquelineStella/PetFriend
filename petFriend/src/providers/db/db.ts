@@ -154,12 +154,11 @@ getPerfilSolo()  {
     this.afDB.database.ref('Perfil'+this.auth.getUser()+'/').orderByChild('uid').once('value', snapshot => {
       let catData = snapshot.val();
       let temparr = [];
-      for (var key in catData) {
-        for (var key2 in catData[key]) {         
+      for (var key in catData) {         
            
-          temparr.push(catData[key][key2])   
+          temparr.push(catData[key])   
       
-        }
+        
       }
       resolve(temparr);
     });

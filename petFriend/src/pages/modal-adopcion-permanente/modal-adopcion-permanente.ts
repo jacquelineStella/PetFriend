@@ -23,6 +23,9 @@ export class ModalAdopcionPermanentePage {
   foto: any;
   coords:any;
   address:any;
+  contactoNombre:any;
+  telefono:any; 
+  p: any;
  
 
   constructor(public navCtrl: NavController,
@@ -49,6 +52,17 @@ export class ModalAdopcionPermanentePage {
   cerrarModal(){
     this.viewCtrl.dismiss();
   }
+  ionViewDidEnter(){   
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0];
+      this.telefono=this.p[1];
+      console.log(this.contactoNombre)
+         })
+
+   
+  }
   
  Adopcion(){
    let adopcion = {
@@ -56,7 +70,9 @@ export class ModalAdopcionPermanentePage {
     nombre: this.mascota.nombre,
     description: this.mascota.descripcion,
     foto: this.mascota.foto,    
-    address: this.address
+    address: this.address,
+    contactoNombre: this.contactoNombre,
+    telefono: this.telefono
     
     
   }

@@ -23,8 +23,12 @@ export class ModalDetalleMascotaPage {
   foto: any;
   coords:any;
   address:any;  
-  perfil: any;
+  temparrCat: any;
+  contactoNombre:any;
+  telefono:any; 
   p: any;
+ 
+
  
 
   constructor(
@@ -35,8 +39,7 @@ export class ModalDetalleMascotaPage {
     private db: DbProvider ) {
       //parametros de MascotaPage
       this.mascota= this.navParams.get('mascota');
-      this.coords=this.navParams.get('coords');
-   
+      this.coords=this.navParams.get('coords');   
       //Se convierte a direccion las coordenadas
       this.getAddress(this.coords).then(results=> {
         this.address = results[0]['formatted_address'];
@@ -44,22 +47,28 @@ export class ModalDetalleMascotaPage {
           // Aquí iría el código para manejar el error
       });
 
-      
-        this.perfil=this.db.getPerfi();
-        console.log(this.perfil);     
+     
+         
+      } 
+   
         
     
-      
-     
-  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalDetalleMascotaPage');
     console.log(this.mascota);
   }
 
-  ionViewDidEnter(){
- 
+  ionViewDidEnter(){   
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0];
+      this.telefono=this.p[1];
+      console.log(this.contactoNombre)
+         })
+
+   
   }
 
    cerrarModal(){
@@ -73,7 +82,8 @@ export class ModalDetalleMascotaPage {
      description: this.mascota.descripcion,
      foto: this.mascota.foto,    
      address: this.address ,
-     nombreContacto: this.perfil,
+     contactoNombre: this.contactoNombre,
+     telefono: this.telefono
    }
    this.db.publicar(perdida).then(res=>{
        console.log('Sitio modificado en firebase');

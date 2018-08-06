@@ -22,6 +22,8 @@ export class AdopcionesPage {
   descripcion: string;
   foto: any= '';
   address:any;
+  contactoNombre:any;
+  telefono:any;
   permanentes:any;
   temporales:any;
 

@@ -21,6 +21,10 @@
     <ion-card >
         <ion-card-content>
         <form (ngSubmit)="Publicar()">
+       <ion-item>
+        <p>Nombre de Contacto:{{this.contactoNombre}}</p>  
+        <p>Telefono de Contacto:{{this.telefono}}</p>        
+      </ion-item>
         <ion-item>
           <img [src]="this.mascota.foto"  />          
         </ion-item>

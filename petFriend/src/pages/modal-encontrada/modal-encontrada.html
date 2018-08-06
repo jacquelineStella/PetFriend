@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-      <ion-title>Mascota encontrada</ion-title>        
+      <ion-title>{{address}}</ion-title>        
          <ion-buttons start>
             <button ion-button (click)="cerrarModal()">
               <ion-icon name="md-close"></ion-icon>
@@ -26,7 +26,7 @@
            <strong>Mascota</strong>
           </ion-card-header>
           <ion-card-content>
-            
+             
             <form (ngSubmit)="guardarMascotaEncontrada()">
             <ion-item>
               <img [src]="foto" *ngIf="foto" />
