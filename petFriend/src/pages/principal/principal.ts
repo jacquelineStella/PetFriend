@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams,MenuController  } from 'ionic-angul
 import { AuthProvider } from '../../providers/auth/auth';
 import { PublicacionesPage } from '../publicaciones/publicaciones';
 import {AdopcionesPage} from '../adopciones/adopciones';
-import {MapaPage} from '../mapa/mapa';
+
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
 import { DbProvider } from '../../providers/db/db';
@@ -52,7 +52,7 @@ export class PrincipalPage {
   }
 
   irMapa(){
-    this.navCtrl.push(MapaPage);
+    
   }
 
   loadMap(){

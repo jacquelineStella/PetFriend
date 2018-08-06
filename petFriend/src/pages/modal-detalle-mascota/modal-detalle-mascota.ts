@@ -22,14 +22,13 @@ export class ModalDetalleMascotaPage {
   descripcion: '';
   foto: any;
   coords:any;
-  address:any;
-  
+  address:any; 
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modalCtrl : ModalController,
-    private viewCtrl: ViewController,
-    private camera: Camera,
+    private viewCtrl: ViewController,   
     private db: DbProvider ) {
       //parametros de MascotaPage
       this.mascota= this.navParams.get('mascota');
@@ -41,18 +40,18 @@ export class ModalDetalleMascotaPage {
           // Aquí iría el código para manejar el error
       });
       
+     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalDetalleMascotaPage');
     console.log(this.mascota);
-  
-    
   }
+
   ionViewDidEnter(){
-   
-  
+ 
   }
+
    cerrarModal(){
      this.viewCtrl.dismiss();
    }
@@ -63,7 +62,7 @@ export class ModalDetalleMascotaPage {
      nombre: this.mascota.nombre,
      description: this.mascota.descripcion,
      foto: this.mascota.foto,    
-     //address: this.address 
+     address: this.address 
    }
    this.db.publicar(perdida).then(res=>{
        console.log('Sitio modificado en firebase');

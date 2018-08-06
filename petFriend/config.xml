@@ -85,7 +85,7 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="AIzaSyB-gqvH3OUME-mn-KLIiNORNu2eUcaLhdI" />
     </plugin>
-     <engine name="android" spec="7.0.0" />
+    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.3.8">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyB-gqvH3OUME-mn-KLIiNORNu2eUcaLhdI" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyB-gqvH3OUME-mn-KLIiNORNu2eUcaLhdI" />

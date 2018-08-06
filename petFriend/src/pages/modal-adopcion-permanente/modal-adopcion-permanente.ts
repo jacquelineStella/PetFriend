@@ -56,7 +56,7 @@ export class ModalAdopcionPermanentePage {
     nombre: this.mascota.nombre,
     description: this.mascota.descripcion,
     foto: this.mascota.foto,    
-    address: this.address,
+    address: this.address
     
     
   }

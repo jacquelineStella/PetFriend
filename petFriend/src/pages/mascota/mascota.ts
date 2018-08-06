@@ -24,7 +24,6 @@ nombre: string;
 descripcion: string;
 foto: any= '';
 coords : any = { lat: 0, lng: 0 };
-coords2 : any = { lat: 0, lng: 0 };
 address:any;
 
 
@@ -35,14 +34,13 @@ address:any;
     private db :DbProvider,
     public  platform: Platform,
     private geolocation: Geolocation,
-   ) {
+   ) {   
+       
 
       platform.ready().then(() => {
         // La plataforma esta lista y ya tenemos acceso a los plugins.
           this.obtenerPosicion();
-       
-        
-     
+
        });
       
   }
@@ -50,12 +48,15 @@ address:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad MascotaPage');
     console.log(this.mascota);
+   
   }
 
   ionViewDidEnter(){   
     this.db.getMascota().subscribe(mascota=>{
       this.mascota = mascota;
-    })
+      })
+
+ 
   }
   nuevaMascota(){
     // aquí vamos a abrir el modal para añadir nueva mascota.
