@@ -18,6 +18,8 @@ import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 })
 export class HistorialPage {
   mascota:any;
+  permanente:any;
+  temporal:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private db :DbProvider,
@@ -35,6 +37,14 @@ export class HistorialPage {
     
     this.db.getPerdidas().subscribe(mascota=>{
       this.mascota = mascota;    
+    })
+
+    this.db.getAdopcionP().subscribe(mascota=>{
+      this.mascota = this.permanente;    
+    })
+
+    this.db.getAdopciont().subscribe(mascota=>{
+      this.mascota = this.temporal;    
     })
   }
   //BORRAR MASCOTAS QUE EL USUARIO TIENE PUBLICADAS 

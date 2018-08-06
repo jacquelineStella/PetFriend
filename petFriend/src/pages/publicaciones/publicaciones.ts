@@ -31,8 +31,7 @@ temparrCat: any;
     private db :DbProvider,
     public  platform: Platform,
     ) {
-      this.db.getPerdidasTodas()
-    .then(res => {
+      this.db.getPerdidasTodas().then(res => {
       this.temparrCat = res;
     })
     console.log(this.temparrCat);

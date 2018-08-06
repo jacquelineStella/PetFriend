@@ -32,14 +32,20 @@ export class DbProvider {
     return this.afDB.database.ref('mascota/'+this.auth.getUser()+'/'+mascota.id).set(mascota)
  }
 
- getMascota(){
+getMascota(){
   return this.afDB.list('mascota/'+this.auth.getUser()).valueChanges();
 }
 getPerdidas(){
   return this.afDB.list('perdida/'+this.auth.getUser()).valueChanges();
 }
 
+getAdopcionP(){
+  return this.afDB.list('adopcionPermanente/'+this.auth.getUser()).valueChanges();
+}
 
+getAdopciont(){
+  return this.afDB.list('adopcionTemporal/'+this.auth.getUser()).valueChanges();
+}
 
 publicar(perdida){ 
   if(!perdida.id){
