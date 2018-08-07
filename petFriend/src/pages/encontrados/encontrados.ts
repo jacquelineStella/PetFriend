@@ -40,12 +40,15 @@ export class EncontradosPage {
           this.obtenerPosicion();
 
        });
-       this.db.getEncontradas().then(res => {
-        this.temparrCat = res;
-      })
+      //  this.db.getEncontradas().then(res => {
+      //   this.temparrCat = res;
+      // })
   }
 
   ionViewDidLoad() {
+    this.db.getEncontradas().then(res => {
+      this.temparrCat = res;
+    })
     console.log('ionViewDidLoad EncontradosPage');
   }
   nuevaMascota(){

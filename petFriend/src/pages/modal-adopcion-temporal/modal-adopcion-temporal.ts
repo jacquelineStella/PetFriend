@@ -46,18 +46,20 @@ export class ModalAdopcionTemporalPage {
        });
   }
   ionViewDidEnter(){   
-    this.db.getPerfil().subscribe(perfil=>{
-      this.p = perfil;
-      console.log(this.p);
-      this.contactoNombre=this.p[0];
-      this.telefono=this.p[1];
-      console.log(this.contactoNombre)
-         })
-
+    
    
   }
 
   ionViewDidLoad() {
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0]['nombre'];
+      this.telefono=this.p[0]['telefono'];
+      console.log(this.p)
+      console.log(this.contactoNombre)
+         })
+
     console.log('ionViewDidLoad ModalAdopcionTemporalPage');
   }
   cerrarModal(){

@@ -40,11 +40,11 @@ export class HistorialPage {
     })
 
     this.db.getAdopcionP().subscribe(mascota=>{
-      this.mascota = this.permanente;    
+      this.permanente = this.permanente;    
     })
 
     this.db.getAdopciont().subscribe(mascota=>{
-      this.mascota = this.temporal;    
+      this.temporal = this.temporal;    
     })
   }
   //BORRAR MASCOTAS QUE EL USUARIO TIENE PUBLICADAS 

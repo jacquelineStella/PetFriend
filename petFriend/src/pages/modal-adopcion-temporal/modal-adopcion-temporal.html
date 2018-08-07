@@ -21,15 +21,21 @@
   <ion-card >
       <ion-card-content>
       <form (ngSubmit)="AdopcionTemporal()">
+          <ion-item>
+        <p>Nombre de contacto: {{this.contactoNombre}}</p>  
+        <p>Numero de contacto: {{this.telefono}}</p> 
+      </ion-item>
       <ion-item>
         <img [src]="this.mascota.foto"  />          
       </ion-item>
       <hr/>
-      <ion-label>Nombre</ion-label>
+      <ion-item>
+      <ion-label>Nombre Mascota</ion-label>    
       <ion-input
         [(ngModel)]="this.mascota.nombre"
         name="nombre" >
       </ion-input>
+    </ion-item>
       <ion-item>
         <ion-label>Descripción</ion-label>
         <ion-textarea [(ngModel)]="this.mascota.descripcion" name="descripcion"></ion-textarea>

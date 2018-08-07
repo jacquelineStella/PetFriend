@@ -33,10 +33,10 @@ telefono:any;
     private db :DbProvider,
     public  platform: Platform,
     ) {
-      this.db.getPerdidasTodas().then(res => {
-      this.temparrCat = res;
-    })
-    console.log(this.temparrCat);
+    //   this.db.getPerdidasTodas().then(res => {
+    //   this.temparrCat = res;
+    // })
+    // console.log(this.temparrCat);
     //   this.db.getPerdidasTodas().then(res => {
     //     this.temparrCat = res;
     // })
@@ -49,6 +49,10 @@ telefono:any;
  
 
   ionViewDidLoad() {
+    this.db.getPerdidasTodas().then(res => {
+      this.temparrCat = res;
+    })
+    console.log(this.temparrCat);
     console.log('ionViewDidLoad PublicacionesPage');
    
   }

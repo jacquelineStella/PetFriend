@@ -32,11 +32,12 @@ export class PerfilPage {
   }
   ionViewDidEnter(){   
     this.db.getPerfil().subscribe(perfil=>{
-      this.p = perfil;
-      console.log(this.p);
-      this.contactoNombre=this.p[0];
-      this.telefono=this.p[1];
-      console.log(this.contactoNombre)
+     this.p = perfil;
+    
+      // console.log(this.p);
+      // this.contactoNombre=this.p[0];
+      // this.telefono=this.p[1];
+      // console.log(this.contactoNombre)
          })
         }
 

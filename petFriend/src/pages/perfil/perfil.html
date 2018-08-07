@@ -19,33 +19,33 @@
 
 
 
-    <ion-content padding>
+<ion-content padding>
         
-          <form >
-            <ion-item>
-                <ion-label floating>Nombre</ion-label>
-                <ion-input
-                  [(ngModel)]="this.contactoNombre"
-                  name="nombre"
-                  type="text"
-                  required
-                >
-                </ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label floating>Telefono de contacto</ion-label>
-                  <ion-input
-                    [(ngModel)]="this.telefono"
-                    name="telefono"
-                    type="number"
-                    required
-                  >
-                  </ion-input>
-                </ion-item>
-            
-    </form>
+    <form *ngFor="let perfil of p">
+      <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input
+            [(ngModel)]="perfil.nombre"
+            name="nombre"
+            type="text"
+            required
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Telefono de contacto</ion-label>
+            <ion-input
+              [(ngModel)]="perfil.telefono"
+              name="telefono"
+              type="number"
+              required
+            >
+            </ion-input>
+          </ion-item>
+      
+</form>
         
-        <!-- <button ion-button type="submit" block>Actualizar Sitio</button> -->
+        
       
     
 
