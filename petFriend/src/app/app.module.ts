@@ -22,6 +22,8 @@ import { EncontradosPage} from '../pages/encontrados/encontrados';
 import { DbProvider } from '../providers/db/db';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { HttpModule } from '@angular/http';
 export const firebaseConfig = {
     apiKey: "AIzaSyA9WzCU0rc3rpx0Cwr_XMAGSJhGXvzGwlQ",
     authDomain: "petfriend-2018.firebaseapp.com",
@@ -46,11 +48,14 @@ export const firebaseConfig = {
    EncontradosPage
   ],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
+    BrowserModule,    
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserModule,
+    HttpModule,
+    IonicModule.forRoot(MyApp),
+ 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +80,9 @@ export const firebaseConfig = {
     AuthProvider,
     DbProvider,
     Camera,
-    Geolocation
+    Geolocation,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GoogleMaps
   ]
 })
 export class AppModule {}
