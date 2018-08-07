@@ -4,7 +4,7 @@ import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError} from '@ion
 import { Platform } from 'ionic-angular';
 declare var google: any; 
 /**
- * Generated class for the MapaPage page.
+ * Generated class for the PetPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,10 +12,10 @@ declare var google: any;
 
 @IonicPage()
 @Component({
-  selector: 'page-mapa',
-  templateUrl: 'mapa.html',
+  selector: 'page-pet',
+  templateUrl: 'pet.html',
 })
-export class MapaPage {
+export class PetPage {
   options : GeolocationOptions;
   currentPos : Geoposition;
   @ViewChild('map') mapElement: ElementRef;
@@ -23,12 +23,14 @@ export class MapaPage {
   places : Array<any> ;
 
 
-  constructor(public navCtrl: NavController,
-     public navParams: NavParams,
-     public  platform: Platform,
-     private geolocation: Geolocation,
-     ) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public  platform: Platform,
+    private geolocation: Geolocation,) {
+  }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PetPage');
   }
 
   ionViewDidEnter(){
@@ -59,7 +61,7 @@ export class MapaPage {
     let request = {
         location : latLng,
         radius : 6000 ,
-        types: ["veterinaria"]
+        types: ["Pet shop"]
     };
     return new Promise((resolve,reject)=>{
         service.nearbySearch(request,function(results,status){
@@ -131,8 +133,6 @@ addMarker(){
 
 }
 ///////////////////////////////////////////
- 
-
  
 
 }

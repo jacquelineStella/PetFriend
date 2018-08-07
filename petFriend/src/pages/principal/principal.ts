@@ -5,6 +5,9 @@ import { PublicacionesPage } from '../publicaciones/publicaciones';
 import {AdopcionesPage} from '../adopciones/adopciones';
 import {EncontradosPage} from '../encontrados/encontrados'
 import {MapaPage} from '../mapa/mapa';
+import { AlimentoPage} from '../alimento/alimento';
+import { PetPage} from '../pet/pet';
+import { PeluqueriaPage} from '../peluqueria/peluqueria';
 
 import { Platform } from 'ionic-angular';
 
@@ -51,7 +54,15 @@ export class PrincipalPage {
   irMapa(){
     this.navCtrl.push(MapaPage);
   }
-
+  irPet(){
+    this.navCtrl.push(PetPage);
+  }
+  irAlimentos(){
+    this.navCtrl.push(AlimentoPage);
+  }
+  irPeluqueria(){
+    this.navCtrl.push(PeluqueriaPage);
+  }
 }
 
 

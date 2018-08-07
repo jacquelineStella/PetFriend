@@ -15,8 +15,11 @@ import { RegistroPage } from '../pages/registro/registro';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { MascotaPage } from '../pages/mascota/mascota';
 import { PublicacionesPage} from '../pages/publicaciones/publicaciones'
-import {AdopcionesPage} from '../pages/adopciones/adopciones';
-import {MapaPage} from '../pages/mapa/mapa';
+import { AdopcionesPage} from '../pages/adopciones/adopciones';
+import { MapaPage} from '../pages/mapa/mapa';
+import { AlimentoPage} from '../pages/alimento/alimento';
+import { PetPage} from '../pages/pet/pet';
+import { PeluqueriaPage} from '../pages/peluqueria/peluqueria';
 import { HistorialPage } from '../pages/historial/historial';
 import { EncontradosPage} from '../pages/encontrados/encontrados';
 import { DbProvider } from '../providers/db/db';
@@ -44,8 +47,11 @@ export const firebaseConfig = {
     HistorialPage,
     PublicacionesPage,
     AdopcionesPage,
-   MapaPage,
-   EncontradosPage
+    MapaPage,
+    EncontradosPage,
+    PeluqueriaPage,
+    PetPage,
+    AlimentoPage
   ],
   imports: [
     BrowserModule,    
@@ -69,7 +75,10 @@ export const firebaseConfig = {
     PublicacionesPage,
     AdopcionesPage,
     EncontradosPage,
-    MapaPage
+    MapaPage,
+    PeluqueriaPage,
+    PetPage,
+    AlimentoPage
       
     
   ],
