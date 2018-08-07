@@ -26,7 +26,7 @@ import { DbProvider } from '../providers/db/db';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMaps } from '@ionic-native/google-maps';
-import { HttpModule } from '@angular/http';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyA9WzCU0rc3rpx0Cwr_XMAGSJhGXvzGwlQ",
     authDomain: "petfriend-2018.firebaseapp.com",
@@ -59,7 +59,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserModule,
-    HttpModule,
+
     IonicModule.forRoot(MyApp),
  
   ],
@@ -89,8 +89,7 @@ export const firebaseConfig = {
     AuthProvider,
     DbProvider,
     Camera,
-    Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation,  
     GoogleMaps
   ]
 })
