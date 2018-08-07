@@ -3,8 +3,9 @@
 // import { AuthProvider } from '../../providers/auth/auth';
 import { PrincipalPage } from '../principal/principal';
 import { RegistroPage } from '../registro/registro';
+import { ReseteoPage } from '../reseteo/reseteo';
 import { Component } from '@angular/core';
-import { IonicPage, NavController,LoadingController, Loading, AlertController} from 'ionic-angular';
+import { IonicPage, NavController,LoadingController, Loading, AlertController,MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -24,8 +25,10 @@ export class HomePage {
     public formBuilder: FormBuilder,
     public afAuth: AngularFireAuth,
     public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public menuCtrl: MenuController
   ) {
+    this.menuCtrl.enable(false);
     this.myForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -69,7 +72,7 @@ export class HomePage {
   }
 
   goToResetPassword(){
-    this.navCtrl.push('ResetPasswordPage');
+    this.navCtrl.push(ReseteoPage);
   }
 
 }

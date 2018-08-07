@@ -22,6 +22,7 @@ import { PetPage} from '../pages/pet/pet';
 import { PeluqueriaPage} from '../pages/peluqueria/peluqueria';
 import { HistorialPage } from '../pages/historial/historial';
 import { EncontradosPage} from '../pages/encontrados/encontrados';
+import {ReseteoPage} from '../pages/reseteo/reseteo';
 import { DbProvider } from '../providers/db/db';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -51,7 +52,8 @@ export const firebaseConfig = {
     EncontradosPage,
     PeluqueriaPage,
     PetPage,
-    AlimentoPage
+    AlimentoPage,
+    ReseteoPage
   ],
   imports: [
     BrowserModule,    
@@ -78,7 +80,8 @@ export const firebaseConfig = {
     MapaPage,
     PeluqueriaPage,
     PetPage,
-    AlimentoPage
+    AlimentoPage,
+    ReseteoPage
       
     
   ],
