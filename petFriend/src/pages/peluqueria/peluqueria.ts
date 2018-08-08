@@ -57,7 +57,7 @@ getReferencia(latLng)
   var service = new google.maps.places.PlacesService(this.map);
   let request = {
       location : latLng,
-      radius : 6000 ,
+      radius : 3000 ,
       types: ["peluqueria canina"]
   };
   return new Promise((resolve,reject)=>{
@@ -92,7 +92,7 @@ let latLng = new google.maps.LatLng(lat, long);
 
 let mapOptions = {
 center: latLng,
-zoom: 12,
+zoom: 15,
 mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 

@@ -60,7 +60,7 @@ export class PetPage {
     var service = new google.maps.places.PlacesService(this.map);
     let request = {
         location : latLng,
-        radius : 6000 ,
+        radius : 3000 ,
         types: ["Pet shop"]
     };
     return new Promise((resolve,reject)=>{
@@ -95,7 +95,7 @@ addMap(lat,long){
 
   let mapOptions = {
   center: latLng,
-  zoom: 12,
+  zoom: 15,
   mapTypeId: google.maps.MapTypeId.ROADMAP
   }
 

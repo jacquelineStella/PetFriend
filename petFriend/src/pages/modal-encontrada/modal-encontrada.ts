@@ -39,6 +39,13 @@ export class ModalEncontradaPage {
   }
 
   ionViewDidLoad() {
+    this.db.getPerfil().subscribe(perfil=>{
+      this.p = perfil;
+      console.log(this.p);
+      this.contactoNombre=this.p[0]['nombre'];
+      this.telefono=this.p[0]['telefono'];
+      console.log(this.contactoNombre)
+         })
    this.coords.lat= this.navParams.get('lat');
    this.coords.lng= this.navParams.get('lng');
    this.getAddress(this.coords).then(results=> {
@@ -73,13 +80,7 @@ export class ModalEncontradaPage {
     });
   }
   ionViewDidEnter(){   
-    this.db.getPerfil().subscribe(perfil=>{
-      this.p = perfil;
-      console.log(this.p);
-      this.contactoNombre=this.p[0];
-      this.telefono=this.p[1];
-      console.log(this.contactoNombre)
-         })
+    
 
    
   }
